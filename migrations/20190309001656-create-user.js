@@ -18,10 +18,6 @@ module.exports = {
         type: Sequelize.STRING
       }
     });
-
-    Users.associate = models => {
-      Payment.hasOne(models.Events)
-    };
   },
   down: (queryInterface, Sequelize) => {
     return queryInterface.dropTable('Users');

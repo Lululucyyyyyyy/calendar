@@ -17,12 +17,12 @@ module.exports = {
       time: {
         type: Sequelize.DOUBLE
       },
-      user{
+      user: {
         allowNull: false,
         type: Sequelize.INTEGER,
         references:{
           model: 'Users',
-          key: id
+          key: 'id'
         }
       }
     });

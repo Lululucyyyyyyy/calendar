@@ -42,7 +42,7 @@ router.post('/register', function(req, res, next){
       res.send(403, {err: 'Username already exists'});
       res.render('error');
     } else{
-      newUser = {id: req.body.id, password: req.body.password};
+      newUser = {id: req.body.id, name: req.body.name, username: req.body.user, password: req.body.password};
       req.session.user = newUser;
       console.log('registered a new user', req.session);
       return User.create(req.body.username, req.body.password);
