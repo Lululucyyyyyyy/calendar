@@ -85,7 +85,9 @@ my_user = function get_username(req){
   });
 };
 
+//doesn't work lol
 router.get(`/u/${my_user}/home`, checkSignIn, function(req, res){
+  console.log('does this one work user line 89');
   res.render('calendar',{id: req.session.user.id})
 });
 

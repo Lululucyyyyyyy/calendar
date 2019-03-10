@@ -1,0 +1,138 @@
+
+<!doctype html>
+
+<html lang="en">
+<head>
+  	<meta charset="utf-8">
+
+  	<title> Protected Page</title>
+  	<meta name="description" content="The HTML5 Herald">
+  	<meta name="author" content="SitePoint">
+
+  	<link rel="stylesheet" href="/styles.css">
+
+	<link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light+Two" rel="stylesheet">
+
+	<script
+  	src="https://code.jquery.com/jquery-3.3.1.js"
+  	integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  	crossorigin="anonymous"></script>
+
+
+	<link rel="icon" href="data:;base64,=">
+</head>
+
+<body>
+  <!-- code by Adria https://codepen.io/afontcu/pen/bapBxv-->
+  <div class="wrapper">
+  <main>
+    <div class="toolbar">
+      <div class="toggle">
+        <div class="toggle__option">week</div>
+        <div class="toggle__option toggle__option--selected">month</div>
+      </div>
+      <div class="current-month">March 2018</div>
+    </div>
+      <form method="POST" action="/u/:username/add">
+        <input type="text" name="description" placeholder="Description">
+        <div class="custom-select">
+          <select id="date">
+            <option value="0">Date</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>          
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            <option value="19">19</option>
+            <option value="20">20</option>
+            <option value="21">21</option>
+            <option value="22">22</option>
+            <option value="23">23</option>
+            <option value="24">24</option>
+            <option value="25">25</option>
+            <option value="26">26</option>
+            <option value="27">27</option>
+            <option value="28">28</option>
+            <option value="29">29</option>
+            <option value="30">30</option>
+          </select>
+          <select id="hour">
+            <option value="0">Hour</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+          </select>
+          <select id='time'>
+            <option value='1'>AM</option>
+            <option value='2'>PM</option>
+          </select>
+        <button type="submit" class="button">
+          Add Event
+        </button>
+      </form>
+    </div>
+  </main>
+  <sidebar>
+    <div class="logo">test this is calendar</div>
+    <div class="avatar">
+      <div class="avatar__img">
+        <img src="https://picsum.photos/70" alt="avatar">
+      </div>
+      <div class="avatar__name">John Smith</div>
+    </div>
+    <nav class="menu">
+      <a class="menu__item" href="/user/u/:username/home">
+        <i class="menu__icon fa fa-home"></i>
+        <span class="menu__text">home</span>
+      </a>
+      <a class="menu__item" href="/user/u/:username/weekly">
+        <i class="menu__icon fa fa-envelope"></i>
+        <span class="menu__text">weekly</span>
+      </a>
+      <a class="menu__item" href="/user/u/:username/4">
+        <i class="menu__icon fa fa-list"></i>
+        <span class="menu__text">4 days</span>
+      </a>
+      <a class="menu__item" href="/user/u/:username/month">
+        <i class="menu__icon fa fa-calendar"></i>
+        <span class="menu__text">calendar</span>
+      </a>
+      <a class="menu__item" href="/user/u/:username/bday">
+        <i class="menu__icon fa fa-sliders"></i>
+        <span class="menu__text">birthdays</span>
+      </a> 
+      <a class="menu__item menu__item--active" href="/user/u/:username/add">
+        <i class="menu__icon fa fa-bar-chart"></i>
+        <span class="menu__text">add item</span>
+      </a>
+      <a class="menu__item" href="/user/u/:username/logout">
+        <i class="menu__icon fa fa-trophy"></i>
+        <span class="menu__text">log out</span>
+      </a>
+    </nav>
+    <div class="copyright">copyright &copy; 2018</div>
+  </sidebar>
+</div>
+</html>

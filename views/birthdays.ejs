@@ -1,0 +1,80 @@
+
+<!doctype html>
+
+<html lang="en">
+<head>
+  	<meta charset="utf-8">
+
+  	<title> Protected Page</title>
+  	<meta name="description" content="The HTML5 Herald">
+  	<meta name="author" content="SitePoint">
+
+  	<link rel="stylesheet" href="/styles.css">
+
+	<link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light+Two" rel="stylesheet">
+
+	<script
+  	src="https://code.jquery.com/jquery-3.3.1.js"
+  	integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  	crossorigin="anonymous"></script>
+
+
+	<link rel="icon" href="data:;base64,=">
+</head>
+
+<body>
+  <!-- code by Adria https://codepen.io/afontcu/pen/bapBxv-->
+  <div class="wrapper">
+  <main>
+    <div class="toolbar">
+      <div class="current-month">March 2018</div>
+    </div>
+  </main>
+
+  <sidebar>
+    <div class="logo">test this is calendar</div>
+    <div class="avatar">
+      <div class="avatar__img">
+        <img src="https://picsum.photos/70" alt="avatar">
+      </div>
+      <div class="avatar__name">John Smith</div>
+    </div>
+    <nav class="menu">
+      <a class="menu__item" href="/user/u/:username/home">
+        <i class="menu__icon fa fa-home"></i>
+        <span class="menu__text">home</span>
+      </a>
+      <a class="menu__item" href="/user/u/:username/weekly">
+        <i class="menu__icon fa fa-envelope"></i>
+        <span class="menu__text">weekly</span>
+      </a>
+      <a class="menu__item" href="/user/u/:username/4">
+        <i class="menu__icon fa fa-list"></i>
+        <span class="menu__text">4 days</span>
+      </a>
+      <a class="menu__item" href="/user/u/:username/month">
+        <i class="menu__icon fa fa-calendar"></i>
+        <span class="menu__text">calendar</span>
+      </a>
+      <a class="menu__item menu__item--active" href="/user/u/:username/bday">
+        <i class="menu__icon fa fa-sliders"></i>
+        <span class="menu__text">birthdays</span>
+      </a>
+      <a class="menu__item " href="/user/u/:username/add">
+        <i class="menu__icon fa fa-bar-chart"></i>
+        <span class="menu__text">add item</span>
+      </a>
+      <a class="menu__item" href="/user/u/:username/logout">
+        <i class="menu__icon fa fa-trophy"></i>
+        <span class="menu__text">log out</span>
+      </a>
+    </nav>
+    <div class="copyright">copyright &copy; 2018</div>
+  </sidebar>
+</div>
+    <form method="GET" action='/user/u/:username/events'>
+        <button type="submit"/>
+          <input onclick="" type="submit" value="temp" />
+        </button>
+      </form>
+</html>
