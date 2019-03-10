@@ -23,14 +23,26 @@
 </head>
 
 <body>
-
 	<div class="header">
-		<h1> Calendar</h1>
+		<h1> Welcome to Calendar</h1>
+		<p> This is made by Lucy, except for most of the css. <br>
+			Works Cited: Adria https://codepen.io/afontcu/pen/bapBxv
+		</p>
+		<button type="submit"><a href="https://codepen.io/afontcu/pen/bapBxv">Their website</a></button>
+		<br>
+		<br>
+		<br>
 	</div>
 
-	<form>
-		<button type='submit' action='/user/register' class='button'> Register </button>
-		<button type='submit' action='/user/login' class='button'> Log In </button>
-	</form>
+	<div class="toolbar">
+      <div class="toggle">
+      	<form method="GET" action='/user/register'>
+			<button type='submit'> Register </button>
+		</form><form method="GET" action='/user/login'>
+			<button type='submit'> Log In </button>
+      	</form>
+      </div>
+      <div class="current-month">Welcome to Calendar</div>
+    </div>
 </body>
 </html>

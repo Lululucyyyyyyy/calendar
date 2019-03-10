@@ -1,11 +1,10 @@
-
-<!doctype html>
+ <!doctype html>
 
 <html lang="en">
 <head>
   	<meta charset="utf-8">
 
-  	<title>The HTML5 Herald</title>
+  	<title> Protected Page</title>
   	<meta name="description" content="The HTML5 Herald">
   	<meta name="author" content="SitePoint">
 
@@ -18,15 +17,110 @@
   	integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
   	crossorigin="anonymous"></script>
 
+
 	<link rel="icon" href="data:;base64,=">
 </head>
 
 <body>
-	<div class="header">
-		<h1> Home </h1>
-	</div>
+  <!-- code by Adria https://codepen.io/afontcu/pen/bapBxv-->
+  <div class="wrapper">
+  <main>
+    <div class="toolbar">
+      <div class="toggle">
+        <div class="toggle__option">week</div>
+        <div class="toggle__option toggle__option--selected">month</div>
+      </div>
+      <div class="current-month">March 2018</div>
+      <div class="search-input">
+        <input type="text" value="Search for Events">
+        <i class="fa fa-search"></i>
+      </div>
+    </div>
 
-	<h1> Lorem Ipsum </h1>
-	<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-</body>
+    <div class="toolbar2">
+      <div class="toggle">
+        <div class="toggle__option">
+          <form method="GET" action='/user/u/:username/calendar'>
+            <button type="submit" ">Calendar</button>
+          </form>
+        </div>
+
+        <div class="toggle__option">
+          <form method="GET" action='/user/u/:username/week'>
+            <button type="submit">Weekly</button>
+          </form>
+        </div>
+
+        <div class="toggle__option">
+          <form method="GET" action='/user/u/:username/4'>
+            <button type="submit">4 days</button>
+          </form>
+        </div>
+
+        <div class="toggle__option">
+          <form method="GET" action='/user/u/:username/goals'>
+            <button type="submit">Goals</button>
+          </form>
+        </div>
+        <div class="toggle__option">
+          <form method="GET" action='/user/u/:username/ach'>
+            <button type="submit">Achievements</button>
+          </form>
+        </div>
+
+        <div class="toggle__option">
+          <form method="GET" action='/user/u/:username/birthdays'>
+            <button type="submit">Birthdays</button>
+          </form>
+        </div>
+      </div>
+    </div>
+        
+  </main>
+  <sidebar>
+    <div class="logo">logo</div>
+    <div class="avatar">
+      <div class="avatar__img">
+        <img src="https://picsum.photos/70" alt="avatar">
+      </div>
+      <div class="avatar__name">John Smith</div>
+    </div>
+    <nav class="menu">
+      <a class="menu__item menu__item--active" href="/u/:username/home">
+        <i class="menu__icon fa fa-home"></i>
+        <span class="menu__text">home</span>
+      </a>
+      <a class="menu__item" href="/user/u/:username/weekly">
+        <i class="menu__icon fa fa-envelope"></i>
+        <span class="menu__text">weekly</span>
+      </a>
+      <a class="menu__item" href="/user/u/:username/4">
+        <i class="menu__icon fa fa-list"></i>
+        <span class="menu__text">4 days</span>
+      </a>
+      <a class="menu__item" href="/user/u/:username/month">
+        <i class="menu__icon fa fa-calendar"></i>
+        <span class="menu__text">calendar</span>
+      </a>
+      <a class="menu__item" href="/user/u/:username/goals">
+        <i class="menu__icon fa fa-bar-chart"></i>
+        <span class="menu__text">goals</span>
+      </a>
+      <a class="menu__item" href="/user/u/:username/ach">
+        <i class="menu__icon fa fa-trophy"></i>
+        <span class="menu__text">achivements</span>
+      </a>
+      <a class="menu__item" href="/user/u/:username/birthdays">
+        <i class="menu__icon fa fa-sliders"></i>
+        <span class="menu__text">birthdays</span>
+      </a>
+    </nav>
+    <div class="copyright">copyright &copy; 2018</div>
+  </sidebar>
+</div>
+    <form method="GET" action='/user/u/:username/events'>
+        <button type="submit"/>
+          <input onclick="" type="submit" value="temp" />
+        </button>
+      </form>
 </html>

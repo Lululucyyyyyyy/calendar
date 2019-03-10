@@ -1,4 +1,4 @@
-var db = require('..//config/config');
+var db = require('../config/config');
 
 'use strict';
 
@@ -9,13 +9,15 @@ exports.method = (sequelize, DataTypes) => {
     password: DataTypes.STRING
   }, {});
   Users.associate = models => {
-    Payment.hasOne(models.Events)
+    Users.hasOne(models.Events);
+    Users.hasOne(models.Others);
   };
   return User;
 };
 
 module.exports={
 	findOne: function (user) {
+    console.log('In find one', user);
     return new Promise ((resolve, reject) => {
       const queryString = 'SELECT * FROM Users WHERE username=?';
       db.query(queryString, [user.username], (err, res) => {
@@ -24,9 +26,11 @@ module.exports={
           reject(err);
         } else {
           if (res.length) {
+            console.log('found one', res);
             // found a user with username that was passed in
             resolve(res[0]);
           } else {
+            console.log('did not find one');
             // did not find a user with username
             resolve(false);
           }
@@ -34,13 +38,11 @@ module.exports={
       });
     });
   },
-  create: function (user, pass) {
+  create: function (name, user, pass) {
     return new Promise ((resolve, reject) => {
       const queryString = 'INSERT INTO Users (name, username, password) VALUES (?, ?, ?)';
       db.query(queryString, [name, user, pass], (err, res) => {
-       console.log('name:', name);
-       console.log("username:", user);
-       console.log("password:", pass);
+        console.log("45:", res, err);
         if (err) {
           // send back an error
           reject(err);

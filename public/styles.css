@@ -1,4 +1,4 @@
-body{
+/*body{
 	font-family: 'Roboto', sans-serif;
 	color: #929292;
 	background-image: url("https://venngage-wordpress.s3.amazonaws.com/uploads/2018/09/Simple-Background-Images-2.png");
@@ -97,8 +97,15 @@ input[type=text]:focus {
 	background-color: #d1beff;
 	color: #ffffff;
 	font-family: 'Shadows Into Light Two', cursive;
-}
+}*/
 
+
+.btn {
+  height: 300px;
+  width: 300px;
+  border-radius: 50%;
+
+}
 /**
  * ALL the UI design credit goes to:
  * https://www.sketchappsources.com/free-source/2676-calendar-template-sketch-freebie-resource.html
@@ -243,8 +250,9 @@ sidebar {
   padding: 16px;
 }
 
-
-
+.calendar_column{
+  column-count: 7;
+}
 
 /* COSMETIC STYLING */
 
@@ -330,6 +338,10 @@ main {
   border-top: 1px solid #e1e1e1;
 }
 
+.calendar_column{
+  border: 1px solid #e1e1e1;
+}
+
 .calendar__day:last-child {
   border-right: 0;
 }
@@ -341,6 +353,12 @@ main {
   text-align: center;
   font-size: 0.9em;
 }
+
+.toggle2{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
 .toggle__option{
   padding: 16px;
   border: 1px solid #e1e1e1;
@@ -365,4 +383,15 @@ main {
   box-shadow: 1px 2px 30px -5px var(--red);
 }
 
+button{
+  font-family: Montserrat;
+  font-weight: 100;
+  color: #A8B2B9;
+  padding: 16px;
+  border: 1px solid #e1e1e1;
+  border-radius: 8px;
+  text-transform: capitalize;
+  cursor: pointer;
+  font-size: 0.9em;
+}
 
