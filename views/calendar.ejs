@@ -20,6 +20,9 @@
 
 
 	<link rel="icon" href="data:;base64,=">
+
+  <script src="/sidebar.js"></script>
+  <script src="/add.js"></script>
 </head>
 
 <body>
@@ -36,6 +39,9 @@
         <input type="text" value="Search for Events">
         <i class="fa fa-search"></i>
       </div>
+    </div>
+    <div>
+      <p> Events temp </p>
     </div>
     <div class="calendar">
       <div class="calendar__header">
@@ -103,7 +109,7 @@
       <div class="avatar__name">John Smith</div>
     </div>
     <nav class="menu">
-      <a class="menu__item" href="/user/u/:username/home">
+      <a class="menu__item" href=`/user/u/:username/home`>
         <i class="menu__icon fa fa-home"></i>
         <span class="menu__text">home</span>
       </a>
@@ -119,7 +125,7 @@
         <i class="menu__icon fa fa-calendar"></i>
         <span class="menu__text">calendar</span>
       </a>
-      <a class="menu__item" href="/user/u/:username/bday">
+      <a class="menu__item" id='birthdays' onClick="$(this).birthdays();>
         <i class="menu__icon fa fa-sliders"></i>
         <span class="menu__text">birthdays</span>
       </a> 

@@ -15,7 +15,7 @@ function checkSignIn(req, res, next){
   }
 }
 
-my_user = function get_username(req){
+username = function get_username(req){
   console.log('line 19 In my_user function', req);
   User.findOne(req.body)
   .then((user)=>{
@@ -27,12 +27,25 @@ my_user = function get_username(req){
   });
 };
 
+my_id = function get_id(req){
+  console.log('line 31 get id func', req);
+  User.findOne(req.body)
+  .then((user)=>{
+    console.log('line 34 in get_id');
+    temp_id = req.body.id;
+    console.log('line 35 id: ', temp_id);
+    if(temp_id){
+      return temp_id;
+    };
+  });
+};
+
 //ALLLLLLL of my get methods
 
 //doesn't work
-router.get(`/${my_user}/home`, checkSignIn, function(req, res){
+router.get(`/:username/home`, checkSignIn, function(req, res){
   console.log('line 32 here');
-  res.render('calendar');
+  res.render('home');
 });
  
 router.get('/:username/home', checkSignIn, function(req, res, next) {
@@ -64,16 +77,16 @@ router.get('/:username/calendar', checkSignIn, function(req, res, next) {
   console.log('line 62 sent to calendar');
   User.findOne(req.session.user)
   .then((user) => {
-    var userid = user.id;
-    console.log(userid);
-    return Events.get_events(userid);
+    console.log('line 67');
+    return Events.get_events(user.id);
   })
   .then((events) => {
+    console.log(events);
     res.render('calendar');
     res.send(200, events);
   })
   .catch((err) => {
-    res.send(500, {err})
+    res.status(500).send({err});
   });
 });
 
@@ -94,31 +107,19 @@ router.get('/:username/add', checkSignIn, function(req, res, next){
 
 //ALLLLLL of my post methods
 
-router.post('/:username/add', checkSignIn, function(req, res, next){
+router.post(`/:username/add`, checkSignIn, function(req, res, next){
+  console.log(req.session.user);
   console.log("line 98 sent to add");
-  res.render('create_event');
-  // User.findOne(req.body)
-  //   console.log('Succsesfully finished find one');
-  //   if(userExists) {
-  //     console.log('before registering');
-  //     res.send(403, {err: 'Username already exists'});
-  //     res.render('error');
-  //   } else{
-  //     console.log('before registering 2');
-  //     console.log(req.body);
-  //     var newUser = {name: req.body.full_name, username: req.body.username, password: req.body.password};
-  //     req.session.user = newUser;
-  //     console.log('registered a new user', req.session);
-  //     return User.create(req.body.full_name, req.body.username, req.body.password);
-  //   }
-  // })
-  // .then((userCreated) =>{
-  //   res.redirect(`/user/u/:username${req.body.username}/home`);
-  // })
-  // .catch((err) => {
-  //   res.send(500, {err})
-
-  
+  console.log("line 99 req.body:", req.body);
+  console.log("var my_id: ",my_id);
+  Events.create(req.body.type, req.body.description, req.body.date, req.body.time, my_id)
+  .then((eventCreated) =>{
+    console.log('created and before redirect');
+    res.redirect('/:username/calendar');
+  })
+  .catch((err) => {
+    res.send(500, {err})
+  });
 });
 
 //Wildcard

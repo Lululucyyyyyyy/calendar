@@ -4,8 +4,10 @@ const User = require('../models/User');
 const Events = require('../models/Events');
 const cookie = require('node-cookie');
 
+
 router.post('/login', function (req, res, next) {
   //expect username password
+  console.log('line 10 in user.js');
   User.findOne(req.body)
   .then((user) => {
     temp_user = req.body.username;
@@ -14,6 +16,7 @@ router.post('/login', function (req, res, next) {
       if (req.body.password === user.password) {
         newUser = {name: req.body.full_name, username: req.body.username, password: req.body.password};
         req.session.user = newUser;
+        console.log('line 20');
         res.redirect(`/u/${req.body.username}/home`);
       } else {
         res.send(400, {err: 'Incorrect password'});
@@ -51,12 +54,13 @@ router.post('/register', function(req, res, next){
       console.log(req.body);
       var newUser = {name: req.body.full_name, username: req.body.username, password: req.body.password};
       req.session.user = newUser;
+      username=req.session.user.username;
       console.log('registered a new user', req.session);
       return User.create(req.body.full_name, req.body.username, req.body.password);
     }
   })
   .then((userCreated) =>{
-    res.redirect(`/user/u/:username${req.body.username}/home`);
+    res.redirect(`/user/u/${req.body.username}/home`);
   })
   .catch((err) => {
     res.send(500, {err})
@@ -74,19 +78,8 @@ function checkSignIn(req, res, next){
   }
 }
 
-my_user = function get_username(req){
-  User.findOne(req.body)
-  .then((user)=>{
-    temp_user = req.body.username;
-    console.log("temp user: ", temp_user);
-    if(temp_user){
-      return temp_user;
-    };
-  });
-};
-
 //doesn't work lol
-router.get(`/u/${my_user}/home`, checkSignIn, function(req, res){
+router.get(`/u/:username/home`, checkSignIn, function(req, res){
   console.log('does this one work user line 89');
   res.render('calendar',{id: req.session.user.id})
 });

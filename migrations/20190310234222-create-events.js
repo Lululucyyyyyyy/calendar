@@ -8,14 +8,17 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      type: {
+        type: Sequelize.STRING
+      },
       description: {
         type: Sequelize.STRING
       },
       date: {
-        type: Sequelize.DATE
+        type: Sequelize.STRING
       },
       time: {
-        type: Sequelize.DOUBLE
+        type: Sequelize.STRING
       },
       user: {
         allowNull: false,

@@ -10,19 +10,20 @@ exports.method = (sequelize, DataTypes) => {
   }, {});
   Users.associate = models => {
     Users.hasOne(models.Events);
-    Users.hasOne(models.Others);
   };
   return User;
 };
 
 module.exports={
-	findOne: function (user) {
+  findOne: function (user) {
     console.log('In find one', user);
     return new Promise ((resolve, reject) => {
       const queryString = 'SELECT * FROM Users WHERE username=?';
       db.query(queryString, [user.username], (err, res) => {
+        console.log('23 in findOne');
         if (err) {
-          // send back an error
+         // send back an error
+          console.log('errorrrrr');
           reject(err);
         } else {
           if (res.length) {
