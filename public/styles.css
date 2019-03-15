@@ -354,9 +354,25 @@ main {
   font-size: 0.9em;
 }
 
+a{
+  color: #A8B2B9;
+  text-decoration: none;
+}
+
 .toggle2{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+
+  text-align: center;
+  font-size:0.9em;
+}
+
+.toggle__option2{
+  padding: 16px;
+  border: 1px solid #e1e1e1;
+  border-radius: 8px;
+  text-transform: capitalize;
+  cursor: pointer;
 }
 
 .toggle__option{

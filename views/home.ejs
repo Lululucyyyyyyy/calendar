@@ -35,38 +35,33 @@
 
     <div class="toolbar2">
       <div class="toggle">
-        <div class="toggle__option">
-          <form method="GET" action='/user/u/:username/calendar'>
-            <button type="submit" ">Calendar</button>
+        <div class="toggle__option2">
+          <form method="GET" action='/u/calendar'>
+            <button type="submit">Calendar</button>
           </form>
         </div>
 
-        <div class="toggle__option">
-          <form method="GET" action='/user/u/:username/week'>
+        <div class="toggle__option2">
+          <form method="GET" action='/u/week'>
             <button type="submit">Weekly</button>
           </form>
         </div>
 
-        <div class="toggle__option">
-          <form method="GET" action='/user/u/:username/4'>
+        <div class="toggle__option2">
+          <form method="GET" action='/u/4'>
             <button type="submit">4 days</button>
           </form>
         </div>
 
-        <div class="toggle__option">
-          <form method="GET" action='/user/u/:username/goals'>
-            <button type="submit">Goals</button>
-          </form>
-        </div>
-        <div class="toggle__option">
-          <form method="GET" action='/user/u/:username/ach'>
-            <button type="submit">Achievements</button>
+        <div class="toggle__option2">
+          <form method="GET" action='/u/birthdays'>
+            <button type="submit">Birthdays</button>
           </form>
         </div>
 
-        <div class="toggle__option">
-          <form method="GET" action='/user/u/:username/birthdays'>
-            <button type="submit">Birthdays</button>
+        <div class="toggle__option2">
+          <form method="GET" action='/u/logout'>
+            <button type="submit">Logout</button>
           </form>
         </div>
       </div>
@@ -77,44 +72,40 @@
     <div class="logo">logo</div>
     <div class="avatar">
       <div class="avatar__img">
-        <img src="https://picsum.photos/70" alt="avatar">
+        <img src="https://cdn1.wakanim.tv/library/308_636712358495598780yourlieinaprilsmall.jpg" alt="avatar">
       </div>
-      <div class="avatar__name">John Smith</div>
+      <div class="avatar__name" id='title'></div>
     </div>
     <nav class="menu">
-      <a class="menu__item menu__item--active" href="/u/:username/home">
+      <a class="menu__item menu__item--active" id='home' href='/u/home'>
         <i class="menu__icon fa fa-home"></i>
         <span class="menu__text">home</span>
       </a>
-      <a class="menu__item" href="/user/u/:username/weekly">
+      <a class="menu__item" id='week' href="/u/weekly">
         <i class="menu__icon fa fa-envelope"></i>
         <span class="menu__text">weekly</span>
       </a>
-      <a class="menu__item" href="/user/u/:username/4">
-        <i class="menu__icon fa fa-list"></i>
-        <span class="menu__text">4 days</span>
-      </a>
-      <a class="menu__item" href="/user/u/:username/month">
+      <a class="menu__item" href="/u/calendar">
         <i class="menu__icon fa fa-calendar"></i>
         <span class="menu__text">calendar</span>
       </a>
-      <a class="menu__item" href="/user/u/:username/birthdays">
+      <a class="menu__item" id='birthdays' href='/u/birthdays'>
         <i class="menu__icon fa fa-sliders"></i>
         <span class="menu__text">birthdays</span>
-      </a>
-      <a class="menu__item " href="/user/u/:username/add">
+      </a> 
+      <a class="menu__item " id='add' href="/u/add">
         <i class="menu__icon fa fa-bar-chart"></i>
         <span class="menu__text">add item</span>
       </a>
-      <a class="menu__item" href="/user/u/:username/logout">
+      <a class="menu__item" id='logout' href="/u/logout">
         <i class="menu__icon fa fa-trophy"></i>
-        <span class="menu__text">Log Out</span>
+        <span class="menu__text">log out</span>
       </a>
     </nav>
     <div class="copyright">copyright &copy; 2018</div>
   </sidebar>
 </div>
-    <form method="GET" action='/user/u/:username/events'>
+    <form method="GET" action='/user/u/events'>
         <button type="submit"/>
           <input onclick="" type="submit" value="temp" />
         </button>

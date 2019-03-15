@@ -4,7 +4,6 @@ const User = require('../models/User');
 const Events = require('../models/Events');
 const cookie = require('node-cookie');
 
-
 router.post('/login', function (req, res, next) {
   //expect username password
   console.log('line 10 in user.js');
@@ -17,7 +16,7 @@ router.post('/login', function (req, res, next) {
         newUser = {name: req.body.full_name, username: req.body.username, password: req.body.password};
         req.session.user = newUser;
         console.log('line 20');
-        res.redirect(`/u/${req.body.username}/home`);
+        res.redirect('/u/home');
       } else {
         res.send(400, {err: 'Incorrect password'});
         res.render('error');
@@ -60,7 +59,7 @@ router.post('/register', function(req, res, next){
     }
   })
   .then((userCreated) =>{
-    res.redirect(`/user/u/${req.body.username}/home`);
+    res.redirect(`/u/home`);
   })
   .catch((err) => {
     res.send(500, {err})
@@ -77,13 +76,6 @@ function checkSignIn(req, res, next){
     next(err);
   }
 }
-
-//doesn't work lol
-router.get(`/u/:username/home`, checkSignIn, function(req, res){
-  console.log('does this one work user line 89');
-  res.render('calendar',{id: req.session.user.id})
-});
-
 
 // Wildcard route
 router.get('/*', function(req, res, next) {
