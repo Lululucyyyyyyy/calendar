@@ -17,26 +17,25 @@ module.exports = (sequelize, DataTypes) => {
 
 
 module.exports={
-    get_events: function (user) {
+    get_events: function (userid) {
     return new Promise ((resolve, reject) => {
       const queryString = 'SELECT * FROM Events WHERE user=?';
-      db.query(queryString, [user], (err, res) => {
+      db.query(queryString, [userid], (err, res) => {
         if (err) {
           // send back an error
-          console.log(err);
           reject(err);
         } else {
-          console.log(res);
           resolve(res);
         }
       });
     });
   },
-    create: function (type, description, date, time, userid) {
+  create: function (type, description, date, time, userid) {
     console.log('in create func');
     return new Promise ((resolve, reject) => {
       console.log('here ha.');
       const queryString = 'INSERT INTO Events (type, description, date, time, user) VALUES (?, ?, ?, ?, ?)';
+      console.log('jk here now ha.');
       console.log(type, description, date, time, userid);
       db.query(queryString, [type, description, date, time, userid], (err, res) => {
         console.log("45:", res, err);

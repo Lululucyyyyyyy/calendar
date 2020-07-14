@@ -28,16 +28,12 @@
   <main>
     <div class="toolbar">
       <div class="toggle">
-        <div class="toggle__option" >
-          <a id='_week' href='/u/weekly'>week</a>
-        </div>
-        <div class="toggle__option">
-          <a id='_month' href='/u/calendar'>month</a>
-        </div>
+        <div class="toggle__option">week</div>
+        <div class="toggle__option toggle__option--selected">month</div>
       </div>
       <div class="current-month">March 2018</div>
     </div>
-    <form method="POST" action='/u/add'>
+    <form method="POST" action='/u/:username/add'>
     <input type="text" name="type" placeholder="Type">
     <br><br>
     <input type="text" name="description" placeholder="Description">
@@ -50,35 +46,39 @@
   </form>
   </main>
   <sidebar>
-    <div class="logo">logo</div>
+    <div class="logo">test this is calendar</div>
     <div class="avatar">
       <div class="avatar__img">
-        <img src="https://cdn1.wakanim.tv/library/308_636712358495598780yourlieinaprilsmall.jpg" alt="avatar">
+        <img src="https://picsum.photos/70" alt="avatar">
       </div>
-      <div class="avatar__name" id='title'></div>
+      <div class="avatar__name">John Smith</div>
     </div>
     <nav class="menu">
-      <a class="menu__item" id='home' href='/u/home'>
+      <a class="menu__item" href="/user/u/:username/home">
         <i class="menu__icon fa fa-home"></i>
         <span class="menu__text">home</span>
       </a>
-      <a class="menu__item" id='week' href="/u/weekly">
+      <a class="menu__item" href="/user/u/:username/weekly">
         <i class="menu__icon fa fa-envelope"></i>
         <span class="menu__text">weekly</span>
       </a>
-      <a class="menu__item" href="/u/calendar">
+      <a class="menu__item" href="/user/u/:username/4">
+        <i class="menu__icon fa fa-list"></i>
+        <span class="menu__text">4 days</span>
+      </a>
+      <a class="menu__item" href="/user/u/:username/month">
         <i class="menu__icon fa fa-calendar"></i>
         <span class="menu__text">calendar</span>
       </a>
-      <a class="menu__item" id='birthdays' href='/u/birthdays'>
+      <a class="menu__item" href="/user/u/:username/bday">
         <i class="menu__icon fa fa-sliders"></i>
         <span class="menu__text">birthdays</span>
       </a> 
-      <a class="menu__item menu__item--active" id='add' href="/u/add">
+      <a class="menu__item menu__item--active" href="/user/u/:username/add">
         <i class="menu__icon fa fa-bar-chart"></i>
         <span class="menu__text">add item</span>
       </a>
-      <a class="menu__item" id='logout' href="/u/logout">
+      <a class="menu__item" href="/user/u/:username/logout">
         <i class="menu__icon fa fa-trophy"></i>
         <span class="menu__text">log out</span>
       </a>

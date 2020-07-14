@@ -1,32 +1,24 @@
-$(document).ready(function() {
+$( document ).ready(function() {
     console.log('in events ajax');
-    function get_events
-    $('#get_events', function(data){
-      $.ajax({
-      type: 'GET', 
-      dataType: 'STRING',
-      url: `/u/calendar/`
-      data: JSON.stringify({ events:events }),
-      success: function(response){
-        console.log(response);
-      },
-      error: function(error){
-        console.log(error);
-      }
-    })
-      .then((events)=>{
-        console.log("index:",index);
-        for event in events:
-          date = event[date];
-          $( `#${date}` ).append( `${event[description], event[time]} `)
+    $('#get_events' function(data){
+      var username=$.ajax({
+        type: 'GET',
+        dataType: 'STRING',
+        url: '../routes/user/',
+        var username = data;
+        data:JSON.stringify({ username:username}),
+        success: function(response){
+          console.log(response);
+        },
+        error: function(response){
+          console.log(error);
+        }
       });
-    });
-
-    $('#get_birthdays', function(data){
       $.ajax({
       type: 'GET', 
       dataType: 'STRING',
-      url: `/u/calendar/`
+      url: `/u/${username}/calendar/`,
+      var messages = data.getElementById('send').value;
       data: JSON.stringify({ events:events }),
       success: function(response){
         console.log(response);
@@ -34,10 +26,7 @@ $(document).ready(function() {
       error: function(error){
         console.log(error);
       }
-    })
-      .then((events)=>{
-        for event in events:
-          if event[type] == 'bday':
-            $( '#get_birthdays').append( `<div>${event[description], event[time]}</div>` )
-      })
+    });
+      $('#get_events' ).append( `<p>${'DATA:', data[type], data[description], data[date], data[time]}</p>` );
+    });
 });
